@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Countdown to GOP & Trump's One Big Beautiful Bill Cuts</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #fff0f0;
+    color: #660000;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+  }
+  header {
+    background: #cc0000;
+    color: white;
+    width: 100%;
+    padding: 15px 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+  main {
+    padding: 30px 20px;
+    max-width: 600px;
+    text-align: center;
+  }
+  #countdown {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  .message {
+    font-size: 1.1rem;
+    margin: 10px 0 25px;
+  }
+  .impact-numbers {
+    text-align: left;
+    background: #ffe5e5;
+    border: 2px solid #cc0000;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 1rem;
+  }
+  .impact-numbers ul {
+    margin: 10px 0 0 20px;
+  }
+  .callout {
+    background: #cc0000;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  button, a.button-link {
+    background: #cc0000;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  button:hover, a.button-link:hover {
+    background: #990000;
+  }
+  footer {
+    margin-top: auto;
+    background: #660000;
+    color: white;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  a {
+    color: #990000;
+  }
+  @media (max-width: 480px) {
+    #countdown {
+      font-size: 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  Countdown to GOP & Trump’s One Big Beautiful Bill Cuts – Oct 1, 2027
+</header>
+
+<main>
+  <div id="countdown">Loading countdown...</div>
+
+  <div class="message">
+    Passed under Trump’s Republican allies, this bill cuts Medicaid, Medicare, and SNAP, putting millions at risk starting in 2027.
+  </div>
+
+  <div class="impact-numbers">
+    <strong>Conservative Impact Estimates:</strong>
+    <ul>
+      <li>Medicaid coverage losses: 3.2 million people (CBO estimate, 2025)</li>
+      <li>SNAP benefit reductions: $10 billion over 5 years (Congressional Budget Office)</li>
+      <li>Marketplace premium increases: Up to 2 million enrollees (Urban Institute)</li>
+    </ul>
+    <small>Sources: <a href="https://www.cbo.gov/publication/58489" target="_blank" rel="noopener noreferrer">CBO</a>, <a href="https://www.urban.org/research/publication/medicaid-snap-cuts-impact" target="_blank" rel="noopener noreferrer">Urban Institute</a></small>
+  </div>
+
+  <div class="callout">
+    Who voted for this? Key GOP lawmakers including Missouri’s reps:<br />
+    <a href="https://www.house.gov/member/billy-long/L000573" target="_blank" rel="noopener noreferrer">Rep. Billy Long</a>, <a href="https://www.house.gov/member/jason-smith/S001198" target="_blank" rel="noopener noreferrer">Rep. Jason Smith</a>, and others.
+  </div>
+
+  <div class="buttons">
+    <a class="button-link" href="https://www.congress.gov/bill/117th-congress/house-bill/1" target="_blank" rel="noopener noreferrer">Learn More</a>
+    <button id="shareBtn">Share This</button>
+  </div>
+</main>
+
+<footer>
+  This bill was passed by Republicans under Donald Trump’s leadership. The cuts will hit the most vulnerable hardest.
+</footer>
+
+<script>
+  const deadline = new Date("October 1, 2027 00:00:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const t = deadline - now;
+
+    if (t < 0) {
+      document.getElementById("countdown").innerHTML = "The cuts are now in effect.";
+      return;
+    }
+
+    const days = Math.floor(t / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((t / (1000 * 60)) % 60);
+    const seconds = Math.floor((t / 1000) % 60);
+
+    document.getElementById("countdown").innerHTML =
+      days + "d " + hours + "h " + minutes + "m " + seconds + "s until the cuts take effect";
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  // Share button functionality (simple copy link)
+  document.getElementById('shareBtn').addEventListener('click', () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      navigator.share({
+        title: 'Countdown to GOP & Trump Medicaid & SNAP Cuts',
+        text: 'Countdown to the GOP & Trump One Big Beautiful Bill cuts happening Oct 1, 2027. Stay informed!',
+        url: url,
+      }).catch(() => alert('Share not supported on this device.'));
+    } else {
+      navigator.clipboard.writeText(url).then(() => {
+        alert('Link copied! Share it with your network.');
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
