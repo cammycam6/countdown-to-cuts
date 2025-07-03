@@ -1,178 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Countdown to GOP & Trump's One Big Beautiful Bill Cuts</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #fff0f0;
-    color: #660000;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-  }
-  header {
-    background: #cc0000;
-    color: white;
-    width: 100%;
-    padding: 15px 10px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.3rem;
-  }
-  main {
-    padding: 30px 20px;
-    max-width: 600px;
-    text-align: center;
-  }
-  #countdown {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 20px 0;
-  }
-  .message {
-    font-size: 1.1rem;
-    margin: 10px 0 25px;
-  }
-  .impact-numbers {
-    text-align: left;
-    background: #ffe5e5;
-    border: 2px solid #cc0000;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    font-size: 1rem;
-  }
-  .impact-numbers ul {
-    margin: 10px 0 0 20px;
-  }
-  .callout {
-    background: #cc0000;
-    color: white;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-  button, a.button-link {
-    background: #cc0000;
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  button:hover, a.button-link:hover {
-    background: #990000;
-  }
-  footer {
-    margin-top: auto;
-    background: #660000;
-    color: white;
-    padding: 12px 20px;
-    font-size: 0.9rem;
-    text-align: center;
-  }
-  a {
-    color: #990000;
-  }
-  @media (max-width: 480px) {
-    #countdown {
-      font-size: 2rem;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Reckoning Clock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: black;
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
     }
-  }
-</style>
+    header {
+      background: #990000;
+      color: white;
+      width: 100%;
+      padding: 30px 20px;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 10px rgba(255, 0, 0, 0.4);
+      text-transform: uppercase;
+    }
+    main {
+      padding: 40px 20px;
+      max-width: 900px;
+      text-align: center;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #ffcccc;
+      margin: 20px 0 40px;
+    }
+    .countdown-boxes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .countdown-box {
+      background: #ff0000;
+      color: white;
+      padding: 35px 20px;
+      border-radius: 14px;
+      font-size: 2.5rem;
+      font-family: 'Orbitron', sans-serif;
+      width: 120px;
+      text-align: center;
+      box-shadow: 3px 6px 15px rgba(255, 0, 0, 0.5);
+      transition: transform 0.2s ease;
+    }
+    .countdown-box span {
+      display: block;
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+      margin-top: 12px;
+    }
+    .embed-info {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #aaa;
+      max-width: 700px;
+    }
+    .embed-info code {
+      background: #222;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #ffdddd;
+    }
+    .warning-list {
+      margin-top: 60px;
+      text-align: left;
+      max-width: 700px;
+      color: #ffdddd;
+    }
+    .warning-list h2 {
+      color: #ff6666;
+      font-size: 1.3rem;
+      border-bottom: 1px solid #ff3333;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+    .warning-list ul {
+      padding-left: 20px;
+    }
+    .warning-list li {
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .learn-more {
+      margin-top: 30px;
+      max-width: 700px;
+      text-align: left;
+      color: #ffaaaa;
+    }
+    .learn-more h3 {
+      color: #ff6666;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #ff3333;
+      padding-bottom: 6px;
+    }
+    .learn-more ul {
+      padding-left: 20px;
+    }
+    .learn-more li {
+      margin-bottom: 10px;
+    }
+    .learn-more a {
+      color: #ffdddd;
+      text-decoration: underline;
+    }
+    .learn-more a:hover {
+      color: white;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  Countdown to GOP & Trump’s One Big Beautiful Bill Cuts – Oct 1, 2027
-</header>
+  <header>
+    THE RECKONING CLOCK
+  </header>
 
-<main>
-  <div id="countdown">Loading countdown...</div>
+  <main>
+    <div class="subtitle">
+      Counting down to October 1, 2027 — when GOP and Trump-era cuts to healthcare and food assistance take effect.
+    </div>
 
-  <div class="message">
-    Passed under Trump’s Republican allies, this bill cuts Medicaid, Medicare, and SNAP, putting millions at risk starting in 2027.
-  </div>
+    <div class="countdown-boxes" id="countdown">
+      <div class="countdown-box" id="days">--<span>Days</span></div>
+      <div class="countdown-box" id="hours">--<span>Hours</span></div>
+      <div class="countdown-box" id="minutes">--<span>Minutes</span></div>
+      <div class="countdown-box" id="seconds">--<span>Seconds</span></div>
+    </div>
 
-  <div class="impact-numbers">
-    <strong>Conservative Impact Estimates:</strong>
-    <ul>
-      <li>Medicaid coverage losses: 3.2 million people (CBO estimate, 2025)</li>
-      <li>SNAP benefit reductions: $10 billion over 5 years (Congressional Budget Office)</li>
-      <li>Marketplace premium increases: Up to 2 million enrollees (Urban Institute)</li>
-    </ul>
-    <small>Sources: <a href="https://www.cbo.gov/publication/58489" target="_blank" rel="noopener noreferrer">CBO</a>, <a href="https://www.urban.org/research/publication/medicaid-snap-cuts-impact" target="_blank" rel="noopener noreferrer">Urban Institute</a></small>
-  </div>
+    <div class="warning-list">
+      <h2>What This Bill Really Means:</h2>
+      <ul>
+        <li><strong>Over 20 million Americans</strong> face the risk of losing Medicaid coverage — many of them children, seniors, and people with disabilities.</li>
+        <li><strong>SNAP benefits slashed</strong>, tightening food security for millions of working families and veterans.</li>
+        <li><strong>Medicare reimbursements reduced</strong>, making it harder for doctors to provide care — especially in rural and underserved areas.</li>
+        <li><strong>States forced to cut programs</strong> or increase taxes to fill federal budget holes caused by these cuts.</li>
+        <li><strong>All passed under the radar</strong> — many won’t feel the pain until it’s too late to stop it.</li>
+      </ul>
+    </div>
 
-  <div class="callout">
-    Who voted for this? Key GOP lawmakers including Missouri’s reps:<br />
-    <a href="https://www.house.gov/member/billy-long/L000573" target="_blank" rel="noopener noreferrer">Rep. Billy Long</a>, <a href="https://www.house.gov/member/jason-smith/S001198" target="_blank" rel="noopener noreferrer">Rep. Jason Smith</a>, and others.
-  </div>
+    <div class="learn-more">
+      <h3>Learn More:</h3>
+      <ul>
+        <li><a href="https://www.cbo.gov/publication/XXX" target="_blank" rel="noopener noreferrer">Congressional Budget Office Analysis of the Bill</a></li>
+        <li><a href="https://www.congress.gov/bill/XXX" target="_blank" rel="noopener noreferrer">Full Text of the Bill on Congress.gov</a></li>
+      </ul>
+    </div>
 
-  <div class="buttons">
-    <a class="button-link" href="https://www.congress.gov/bill/117th-congress/house-bill/1" target="_blank" rel="noopener noreferrer">Learn More</a>
-    <button id="shareBtn">Share This</button>
-  </div>
-</main>
+    <div class="embed-info">
+      Want to help spread the word? Add this clock to your site:
+      <br /><br />
+      <code>&lt;iframe src="https://yourusername.github.io/your-repo-name/" width="100%" height="300" style="border:none;overflow:hidden" loading="lazy"&gt;&lt;/iframe&gt;</code>
+    </div>
+  </main>
 
-<footer>
-  This bill was passed by Republicans under Donald Trump’s leadership. The cuts will hit the most vulnerable hardest.
-</footer>
+  <script>
+    const deadline = new Date("October 1, 2027 00:00:00").getTime();
 
-<script>
-  const deadline = new Date("October 1, 2027 00:00:00").getTime();
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const t = deadline - now;
-
-    if (t < 0) {
-      document.getElementById("countdown").innerHTML = "The cuts are now in effect.";
-      return;
+    function animateUpdate(id, value, label) {
+      const el = document.getElementById(id);
+      el.innerHTML = `${value}<span>${label}</span>`;
+      gsap.fromTo(el, { scale: 0.95 }, { scale: 1, duration: 0.3, ease: "back.out(1.7)" });
     }
 
-    const days = Math.floor(t / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((t / (1000 * 60)) % 60);
-    const seconds = Math.floor((t / 1000) % 60);
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const t = deadline - now;
 
-    document.getElementById("countdown").innerHTML =
-      days + "d " + hours + "h " + minutes + "m " + seconds + "s until the cuts take effect";
-  }
+      if (t < 0) {
+        document.getElementById("countdown").innerHTML = "<strong>The cuts have begun. Lives are changing now.</strong>";
+        return;
+      }
 
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
+      const days = Math.floor(t / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((t / (1000 * 60)) % 60);
+      const seconds = Math.floor((t / 1000) % 60);
 
-  // Share button functionality (simple copy link)
-  document.getElementById('shareBtn').addEventListener('click', () => {
-    const url = window.location.href;
-    if (navigator.share) {
-      navigator.share({
-        title: 'Countdown to GOP & Trump Medicaid & SNAP Cuts',
-        text: 'Countdown to the GOP & Trump One Big Beautiful Bill cuts happening Oct 1, 2027. Stay informed!',
-        url: url,
-      }).catch(() => alert('Share not supported on this device.'));
-    } else {
-      navigator.clipboard.writeText(url).then(() => {
-        alert('Link copied! Share it with your network.');
-      });
+      animateUpdate("days", days, "Days");
+      animateUpdate("hours", hours, "Hours");
+      animateUpdate("minutes", minutes, "Minutes");
+      animateUpdate("seconds", seconds, "Seconds");
     }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
+
   });
 </script>
 
